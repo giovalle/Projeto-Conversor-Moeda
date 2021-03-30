@@ -1,0 +1,32 @@
+.quadro{
+    text-align: center;
+    margin: 50px;
+    border: 15px;
+    border-radius: 25px;
+    float: left;
+    
+}
+.cartao{
+    margin-left: 300px;
+    width: 40%;
+    border: 15px;
+    border-radius: 25px;
+}
+
+.fonteform{
+    color:white;
+    font-size: 15px;
+}
+
+.valorcss{
+    color: black;
+    border: 15px;
+    border-radius: 25px;
+}
+
+.botao{
+    background: #b3f37e;
+    color: black;
+    border: 15px;
+    border-radius: 25px;
+}
