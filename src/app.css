@@ -47,3 +47,12 @@ color: #161616;
     border-radius: 25px;
     font-size: large;
 }
+
+.botao:disabled{
+    background: #b3f37e;
+    color: black;
+    opacity: 0.7;
+    border: 15px;
+    border-radius: 25px;
+    font-size: large;
+}

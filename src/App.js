@@ -20,6 +20,9 @@ function App() {
     const [codigo, setCodigo] = useState('')
     const [valor, setValor] = useState('')
     const [valorconvert, setValorconvert] = useState('')
+    const [dataconvert, setDataconvert] = useState('')
+    const [botaofalso, setBotaofalso] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("Valor negativo é Invalido")
 
     //Função para fazer a conversão
     useEffect(() => {
@@ -29,7 +32,17 @@ function App() {
         console.log(codigo[0].high)
         console.log(valor / codigo[0].high)         // até aqui é mostrado apenas no console para desbug
         setValorconvert((valor / codigo[0].high).toFixed(2))      //parte mais importante do código aonde faz a conversão
+        setDataconvert((codigo[0].create_date))
+
+        if (valor < 0) {
+            setValorconvert(errorMessage)       // if que define o erro caso o numero seja negativo
+        }
     }, [codigo, valor])
+
+    useEffect(()=>{
+        setBotaofalso(!valor)
+    }, [valor])
+
 
     //função async que carrega a API
     async function obterMoeda(obtmoeda) {
@@ -60,10 +73,10 @@ function App() {
 
             </Jumbotron>
             <Card className="cartao" bg="dark">
-                <Card.Header className="cabecalho" style={{background: "#b3f37e"}} >Conversor</Card.Header>
+                <Card.Header className="cabecalho" style={{ background: "#b3f37e" }} >Conversor</Card.Header>
                 <form className="quadro">
                     <label className="fonteform"> Qual moeda gostaria de converter do real?</label>
-                    
+
                     <br></br>
 
                     <select onChange={event => setMoeda(event.target.value)} value={moeda} className="valorcss">
@@ -94,7 +107,7 @@ function App() {
                     </input>
                     <br></br>
 
-                    <button className="botao" onClick={(event) => {
+                    <button className="botao" disabled={botaofalso} onClick={(event) => {
                         event.preventDefault();
                         obterMoeda(moeda)
                     }}>Converter</button>
@@ -104,7 +117,8 @@ function App() {
                     <br></br>
                     <input type="text" className="resultadocss" value={valorconvert}>
                     </input>
-
+                    <br></br>
+                    <label className="fonteform">Data de conversão atualizada em: {dataconvert}</label>
                 </form>
             </Card>
         </>
