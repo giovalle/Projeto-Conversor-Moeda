@@ -60,6 +60,7 @@ function App() {
     return (
         //apartir daqui é o front-end aonde será trabalhada a formatação com a organização do projeto.
         <>
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#inicio"><BiMoney />Conversor de Real para outras moedas</Navbar.Brand>
                 <Nav className="mr-auto">
