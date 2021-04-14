@@ -32,7 +32,7 @@ function App() {
         console.log(codigo[0].high)
         console.log(valor / codigo[0].high)         // até aqui é mostrado apenas no console para desbug
         setValorconvert((valor / codigo[0].high).toFixed(2))      //parte mais importante do código aonde faz a conversão
-        setDataconvert((codigo[0].create_date))
+        setDataconvert((codigo[0].create_date))             //mostra a data atualizada da moeda
 
         if (valor < 0) {
             setValorconvert(errorMessage)       // if que define o erro caso o numero seja negativo
@@ -40,7 +40,7 @@ function App() {
     }, [codigo, valor])
 
     useEffect(()=>{
-        setBotaofalso(!valor)
+        setBotaofalso(!valor)               //deixar o botão converter desabilitado
     }, [valor])
 
 
